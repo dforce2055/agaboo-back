@@ -6,7 +6,7 @@
 Cloud Functions para Firebase te permite ejecutar automáticamente el código de backend en respuesta a eventos activados por las funciones de Firebase y las solicitudes HTTPS. Tu código se almacena en la nube de Google y se ejecuta en un entorno administrado. No necesitas administrar ni escalar tus propios servidores.
 
 ### Prerequisitos
-Necesitas tener instalado un entorno Node.js (node -v^10.15.3), GIT (^2.17.1), y Firebase CLI (^7.3.0).<br>
+Necesitas tener instalado un entorno **Node.js (node -v^10.15.3)**, **GIT (^2.17.1)**, y **Firebase CLI (^7.3.0)**<br>
 
 1. [NodeJS](https://www.hostinger.com.ar/tutoriales/instalar-node-js-ubuntu/)
 
@@ -38,14 +38,14 @@ Para usar un identificador específico, debes editar el ID del proyecto durante 
 3. Sigue los pasos de configuración restantes en Firebase console y, luego, haz clic en Crear proyecto (o Agregar Firebase si usas un proyecto de Google existente).<br>
 
 Firebase aprovisiona los recursos para tu proyecto de forma automática. Cuando finalice, verás la página de descripción general del proyecto en Firebase console.
-
+![Step-6](https://miro.medium.com/max/1200/1*Rx4-_9d33LDquRCyLOk49w.gif)
 
 ### Paso-3
 Dentro de la carpeta del repositorio recientemente clonado ejecutar:
 #### `firebase login`
 
 ### Paso-4
-Selecciona el Proyecto <em>(previeamente creado)</em>
+Selecciona el Proyecto <em>(previamente creado)</em>
 #### `firebase init`
 #### `firebase use --add`
 
