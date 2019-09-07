@@ -1,18 +1,7 @@
 {
     "hosting": {
         "rewrites": [
-            {
-                "source": "/getallusers",
-                "function": "getAllUsers"
-            },
-            {
-                "source": "/hellodude",
-                "function": "helloDude"
-            },
-            {
-                "source": "/helloworld{,/**}",
-                "function": "helloWorld"
-            }
+            
         ]
     }
 

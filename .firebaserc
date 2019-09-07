@@ -1,6 +1,7 @@
 {
   "projects": {
-    "default": "agaboodb",
-    "staging": "agaboodforce"
+    "default": "agaboodforce",
+    "staging": "agaboodb",
+    "test": "agaboodforce"
   }
 }

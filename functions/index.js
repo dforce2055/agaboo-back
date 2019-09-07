@@ -1,42 +1,15 @@
-// // Create and Deploy Your First Cloud Functions
-// // https://firebase.google.com/docs/functions/write-firebase-functions
-//
-
 // The Cloud Functions for Firebase SDK to create Cloud Functions and setup triggers.
 const functions = require('firebase-functions');
 
 // The Firebase Admin SDK to access the Firebase Realtime Database.
 const admin = require('firebase-admin');
+const users = require('./repositories/users'); 
+const customers = require('./repositories/customers'); 
+
 admin.initializeApp();
 
-exports.helloWorld = functions.https.onRequest((request, response) => {
-    response.send("Hello from Firebase!");
-});
 
-exports.helloDude = functions
-    //.region('us-east1') //región southamerica-east1 (São Paulo)
-    .https.onRequest((req, res) => {
-        console.log("Hello Dude from console");
-        res.send("Hello Dude from Firebase!");
-        res.end();
-    });
-
-exports.getAllUsers = functions
-    //.region('us-east1') //región southamerica-east1 (São Paulo)
-    .https.onRequest((req, res) => {
-        admin.firestore().collection('users').get()
-            // eslint-disable-next-line promise/always-return
-            .then(snapshot => {
-                let users = [];
-                snapshot.forEach(doc => {
-                    console.log(doc.id, '=>', doc.data());
-                    users.push(doc.id, '=>', doc.data());
-                });
-                res.send(users);
-                res.end();
-            })
-            .catch(error => {
-                console.log('Error getting documents', error);
-            });
-
-    })
+// exporto las funciones 
+exports.helloDude = users.helloDude;
+exports.getAllUSers = users.getAllUsers;
+exports.getAllCustomers = customers.getAllCustomers;
