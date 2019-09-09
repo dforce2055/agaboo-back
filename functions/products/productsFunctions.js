@@ -10,12 +10,12 @@ exports.getProducts = functions.https.onRequest((req, res) => {
   .get()
   // eslint-disable-next-line promise/always-return
   .then( querySnapshot => {
-    let usuarios = [];
+    let productos = [];
     querySnapshot.forEach(doc => {
-      usuarios.push(doc.id,'=>', doc.data());
+      productos.push(doc.id,'=>', doc.data());
     });
     
-    res.send(usuarios);
+    res.send(productos);
     res.end();
   }).catch(error => {
     console.log('ERROOOORR', error);
@@ -41,21 +41,21 @@ exports.createProduct = functions.https.onRequest((req, res) => {
 });
 
 exports.productById = functions.https.onRequest((req,res) => {
-  var dni = req.query.dni;
+  var id = req.query.id;
 
   db.collection('/products')
   .limit(10)
   .get()
   // eslint-disable-next-line promise/always-return
   .then( querySnapshot => {
-    let usuarios = [];
+    let productos = [];
     querySnapshot.forEach(doc => {
-      if (doc.data().dni === dni) {
+      if (doc.data().id === id) {
         usuarios.push(doc.id,doc.data());
       }
     });
     
-    res.send(usuarios);
+    res.send(productos);
     res.end();
   }).catch(error => {
     console.log('ERROOOORR', error);
@@ -64,7 +64,7 @@ exports.productById = functions.https.onRequest((req,res) => {
 
 exports.deleteProduct = functions.https.onRequest((req,res) => {
 
-  let dni = req.query.dni;
+  let id = req.query.id;
   
   // eslint-disable-next-line promise/catch-or-return
   db.collection('/products')
@@ -75,9 +75,9 @@ exports.deleteProduct = functions.https.onRequest((req,res) => {
         edo:false      
     }];
     doc.forEach(doc=>{
-      if (doc.data().dni === dni) {
+      if (doc.data().id === id) {
         flag.edo = true; //confirmo que se elimino
-        db.collection('/usuarios').doc(doc.id).delete();        
+        db.collection('/products').doc(doc.id).delete();        
       }
     });
 
