@@ -34,14 +34,14 @@ exports.getUsers = functions.https.onRequest((req, res) => {
 exports.createUser = functions.https.onRequest((req, res) => {
 
   const data = { //Recibo los parametros que vienen del endpoint
-      name: req.query.nombre,
+      name: req.query.name,
     dni: req.query.dni
   };
 
   const snapshot = db
     .collection('/usuarios') //agregar coleccion a utilizar o creara una por defecto
     .add({
-      name: data.nombre, 
+      name: data.name, 
       dni: data.dni
       });
 
