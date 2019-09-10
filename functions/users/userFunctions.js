@@ -90,3 +90,23 @@ exports.deleteUser = functions.https.onRequest((req,res) => {
   res.redirect(303, snapshot.ref.toString());
   res.end();
 });
+
+exports.getAllCustomers = functions
+  //.region('us-east1') //región southamerica-east1 (São Paulo)
+  .https.onRequest((req, res) => {
+    admin.firestore().collection('customers').get()
+      // eslint-disable-next-line promise/always-return
+      .then(snapshot => {
+        let customers = [];
+        snapshot.forEach(doc => {
+          console.log(doc.id, '=>', doc.data());
+          customers.push(doc.id, '=>', doc.data());
+        });
+        res.send(customers);
+        res.end();
+      })
+      .catch(error => {
+        console.log('Error getting documents', error);
+      });
+
+  })

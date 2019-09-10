@@ -3,7 +3,7 @@ const admin = require('firebase-admin');
 
 let db = admin.firestore();
 
-exports.getProducts = functions.https.onRequest((req, res) => { 
+exports.getProductsOLD = functions.https.onRequest((req, res) => { 
 
   db.collection('/products') //Coleccion a buscar
   .limit(10) //Limite de JSON a traer de db
